@@ -3,7 +3,7 @@ requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
-name = "ssec_project"
+name = "prospecpy"
 dynamic = ["version"]
 description = "Python project repository template for developing python package."
 readme = "README.md"
@@ -19,7 +19,7 @@ classifiers = [
     "Topic :: Software Development :: Build Tools",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["requests", "pandas"]
+dependencies = ["requests", "pandas", ]
 
 [project.optional-dependencies]
 dev = [

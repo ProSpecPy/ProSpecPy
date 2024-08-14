@@ -1,0 +1,6 @@
+#Packages
+brukeropusreader
+matplotlib
+numpy
+pandas
+scipy
