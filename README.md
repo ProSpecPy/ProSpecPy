@@ -26,7 +26,11 @@ The package is built on the following key elements:
 
 ## Installation and Usage
 
-[Documentation coming soon]
+For the easiest way to get started with ProSpecPy, we recommend using GitHub Codespaces. This allows you to run the package in a cloud-based environment without needing to install anything locally.
+
+Click the button below 👇
+
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/uw-ssec/ProSpecPy?quickstart=1)
 
 ## Contributing
 
@@ -34,4 +38,4 @@ The package is built on the following key elements:
 
 ## License
 
-This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
+This project is licensed under the BSD 3-Clause License - see the [LICENSE](./LICENSE) file for details.
