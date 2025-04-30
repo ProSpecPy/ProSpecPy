@@ -1,14 +1,15 @@
+from __future__ import annotations
 
-import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-#find peaks
+
+# find peaks
 from scipy.signal import find_peaks, peak_widths
-#widget
-import ipywidgets as widgets
+
+# widget
 
 
-def get_peaks(second_deriv, threshold = 0.15): #, showplot = False):
+def get_peaks(second_deriv, threshold=0.15):  # , showplot = False):
     """
     Function to detect peaks in the second derivative of a spline function.
 
@@ -30,7 +31,7 @@ def get_peaks(second_deriv, threshold = 0.15): #, showplot = False):
     relative_height = threshold * max(d2ydx2_spl_upsidedown)
     peaks_index = find_peaks(d2ydx2_spl_upsidedown, prominence=relative_height)
 
-    #use for loops to extract the coordinates of the peaks so we can plot them on the plot above
+    # use for loops to extract the coordinates of the peaks so we can plot them on the plot above
     d2ydx2_peak_val = []
     deriv_x_peak_val = []
 
@@ -43,10 +44,7 @@ def get_peaks(second_deriv, threshold = 0.15): #, showplot = False):
     return peaks_index, deriv_x_peak_val, d2ydx2_peak_val
 
 
-
-
 def get_start_end_anchorpoints(peaks_index, second_deriv):
-
     """
     Function to determine the start and end anchor points of peaks.
 
@@ -63,10 +61,10 @@ def get_start_end_anchorpoints(peaks_index, second_deriv):
         x-coordinate values(wavenumber) of the end anchor points of peaks.
     """
     d2ydx2_spl_upsidedown = second_deriv[1] * -1
-    peak_wid = peak_widths(d2ydx2_spl_upsidedown, peaks_index, rel_height=1) 
+    peak_wid = peak_widths(d2ydx2_spl_upsidedown, peaks_index, rel_height=1)
 
     width_endIdx = [int(x) for x in peak_wid[2]]
-    wv_endIdx =[]
+    wv_endIdx = []
 
     for i in width_endIdx:
         wv_endIdx.append(second_deriv[2][i])
@@ -79,7 +77,9 @@ def get_start_end_anchorpoints(peaks_index, second_deriv):
     return wv_startIdx, wv_endIdx
 
 
-def get_all_anchor_points(wv_startIdx, wv_endIdx, deriv_x_peak_val, anchor_points_raw_data, y_corr_abs, adj_factor=1): 
+def get_all_anchor_points(
+    wv_startIdx, wv_endIdx, deriv_x_peak_val, anchor_points_raw_data, y_corr_abs, adj_factor=1
+):
     """
     Function to filter and post-process anchor points based on peak characteristics.
 
@@ -105,7 +105,7 @@ def get_all_anchor_points(wv_startIdx, wv_endIdx, deriv_x_peak_val, anchor_point
     - anchor_data_sorted: DataFrame
         DataFrame containing sorted anchor points data.
     """
-    #get the smaller width for each peak using get_smaller_peak_width()
+    # get the smaller width for each peak using get_smaller_peak_width()
     smaller_peak_wid = get_smaller_peak_width(deriv_x_peak_val, wv_startIdx, wv_endIdx)
     post_process_anchor_points = []
     post_process_anchor_points_abs = []
@@ -114,29 +114,35 @@ def get_all_anchor_points(wv_startIdx, wv_endIdx, deriv_x_peak_val, anchor_point
         For each point in the raw data:
             1. get the index of the peak that is closest to this point using the criteria minimum(abs(peak_wavenumber - raw_point))
             2. if abs(closest peak - raw data point) > smaller peak width * adjustment factor:
-                        then append the raw data point as anchor point and its absorbance 
+                        then append the raw data point as anchor point and its absorbance
     """
 
     for index in range(len(anchor_points_raw_data)):
-        dist_peak_to_anchor = abs(deriv_x_peak_val-anchor_points_raw_data[index])
+        dist_peak_to_anchor = abs(deriv_x_peak_val - anchor_points_raw_data[index])
         closest_peak_idx = np.argmin(dist_peak_to_anchor)
 
-        if abs(deriv_x_peak_val[closest_peak_idx] - anchor_points_raw_data[index]) > smaller_peak_wid[closest_peak_idx]*adj_factor:
-                post_process_anchor_points.append(anchor_points_raw_data[index])
-                post_process_anchor_points_abs.append(y_corr_abs[index])
+        if (
+            abs(deriv_x_peak_val[closest_peak_idx] - anchor_points_raw_data[index])
+            > smaller_peak_wid[closest_peak_idx] * adj_factor
+        ):
+            post_process_anchor_points.append(anchor_points_raw_data[index])
+            post_process_anchor_points_abs.append(y_corr_abs[index])
 
-    #post processesing to avoid repeating values and make sure the wavenumbers are in the same acending or decending order
-    post_process_anchor_data = pd.DataFrame({'wavenumber': post_process_anchor_points, 'absorbance': post_process_anchor_points_abs})
+    # post processesing to avoid repeating values and make sure the wavenumbers are in the same acending or decending order
+    post_process_anchor_data = pd.DataFrame(
+        {"wavenumber": post_process_anchor_points, "absorbance": post_process_anchor_points_abs}
+    )
     post_process_anchor_data = post_process_anchor_data.drop_duplicates()
-    anchor_data_sorted = post_process_anchor_data.sort_values(by='wavenumber').reset_index()
+    anchor_data_sorted = post_process_anchor_data.sort_values(by="wavenumber").reset_index()
 
-    #get all peak wavenumber and absorbance for plotting
-    peak_wavenumber, peak_absorbance = get_peaks_absorbance(deriv_x_peak_val, anchor_points_raw_data, y_corr_abs)
+    # get all peak wavenumber and absorbance for plotting
+    peak_wavenumber, peak_absorbance = get_peaks_absorbance(
+        deriv_x_peak_val, anchor_points_raw_data, y_corr_abs
+    )
     return anchor_data_sorted, peak_wavenumber, peak_absorbance
 
 
-def get_peaks_absorbance(deriv_x_peak_val,x_wavenb, y_corr_abs):
-
+def get_peaks_absorbance(deriv_x_peak_val, x_wavenb, y_corr_abs):
     """
     Function to retrieve peak wavenumbers and corresponding absorbance values.
 
@@ -160,12 +166,16 @@ def get_peaks_absorbance(deriv_x_peak_val,x_wavenb, y_corr_abs):
     peak_absorbance = []
 
     for peak_val in deriv_x_peak_val:
-        indices_within_threshold = [index for index, value in enumerate(x_wavenb) if abs(value - peak_val) <= range_width]
-        data = pd.DataFrame({'wv': x_wavenb[indices_within_threshold], 'abs': y_corr_abs[indices_within_threshold]}) 
-        #Choosing the highest wavenumber as the peak
-        peak_data = data.loc[data['wv'].idxmax()]
-        peak_wavenumber.append(peak_data['wv'])
-        peak_absorbance.append(peak_data['abs'])
+        indices_within_threshold = [
+            index for index, value in enumerate(x_wavenb) if abs(value - peak_val) <= range_width
+        ]
+        data = pd.DataFrame(
+            {"wv": x_wavenb[indices_within_threshold], "abs": y_corr_abs[indices_within_threshold]}
+        )
+        # Choosing the highest wavenumber as the peak
+        peak_data = data.loc[data["wv"].idxmax()]
+        peak_wavenumber.append(peak_data["wv"])
+        peak_absorbance.append(peak_data["abs"])
     return peak_wavenumber, peak_absorbance
 
 
@@ -189,12 +199,11 @@ def get_smaller_peak_width(deriv_x_peak_val, wv_startIdx, wv_endIdx):
     for i in range(len(deriv_x_peak_val)):
         left_wid = deriv_x_peak_val[i] - wv_startIdx[i]
         right_wid = wv_endIdx[i] - deriv_x_peak_val[i]
-        #smaller peak width
+        # smaller peak width
         smaller_peak_wid.append(min(left_wid, right_wid))
     return smaller_peak_wid
 
 
 def get_peak_wid_at_half_height(baseline_corrected_abs, peak_wv_index):
-    peak_wid = peak_widths(baseline_corrected_abs, peak_wv_index, rel_height=0.5) 
+    peak_wid = peak_widths(baseline_corrected_abs, peak_wv_index, rel_height=0.5)
     return peak_wid[0]
-

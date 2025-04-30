@@ -133,3 +133,10 @@ dmypy.json
 
 # Local Package
 version.py
+
+# pixi environments
+.pixi
+*.egg-info
+
+# MacOS
+.DS_Store

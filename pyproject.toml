@@ -19,7 +19,13 @@ classifiers = [
     "Topic :: Software Development :: Build Tools",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["requests", "pandas", ]
+dependencies = [
+    "brukeropusreader",
+    "matplotlib",
+    "numpy",
+    "pandas",
+    "scipy"
+]
 
 [project.optional-dependencies]
 dev = [
@@ -38,7 +44,7 @@ docs = [
     "jupyter-book",
     "numpydoc",
 ]
-all = ["ssec_project[dev,docs]"]
+all = ["prospecpy[dev,docs]"]
 
 [project.license]
 file = "LICENSE"
@@ -53,7 +59,7 @@ Issues = "https://github.com/uw-ssec/python-project-template/issues"
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/ssec_project/version.py"
+version-file = "src/prospecpy/version.py"
 
 [tool.hatch.version.raw-options]
 local_scheme = "no-local-version"
@@ -66,26 +72,10 @@ minversion = "6.0"
 addopts = ["-vvv", "-ra", "--showlocals", "--strict-markers", "--strict-config"]
 xfail_strict = false
 filterwarnings = ["error"]
-log_cli_level = "info"
+log_cli_level = "INFO"
 testpaths = ["tests"]
 
-[tool.mypy]
-files = ["src", "tests"]
-python_version = "3.11"
-warn_unused_configs = true
-strict = true
-enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
-warn_unreachable = true
-disallow_untyped_defs = false
-disallow_incomplete_defs = false
-
-[[tool.mypy.overrides]]
-module = "ssec_project.*"
-disallow_untyped_defs = true
-disallow_incomplete_defs = true
-
 [tool.ruff]
-src = ["src"]
 exclude = ["tests/**", "testing.py"]
 line-length = 100
 
@@ -125,3 +115,20 @@ isort.required-imports = ["from __future__ import annotations"]
 [tool.ruff.lint.per-file-ignores]
 "tests/**" = ["T20"]
 "noxfile.py" = ["T20"]
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["osx-arm64", "osx-64", "linux-64"]
+
+[tool.pixi.pypi-dependencies]
+prospecpy = { path = ".", editable = true }
+
+[tool.pixi.environments]
+default = { solve-group = "default" }
+all = { features = ["all", "dev", "docs"], solve-group = "default" }
+dev = { features = ["dev"], solve-group = "default" }
+docs = { features = ["docs"], solve-group = "default" }
+
+[tool.pixi.feature.dev.tasks]
+lint = { cmd = ["pre-commit", "run", "--all-files"] }
+test = { cmd = ["pytest", "--tb=short", "--disable-warnings", "-v"] }
