@@ -5,56 +5,33 @@
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-[![Documentation Status](https://readthedocs.org/projects/ssec-python-project-template/badge/?version=latest)](https://ssec-python-project-template.readthedocs.io/en/latest/?badge=latest)
-[![pre-commit.ci status](https://results.pre-commit.ci/badge/github/uw-ssec/python-project-template/main.svg)](https://results.pre-commit.ci/latest/github/uw-ssec/python-project-template/main)
-[![CI](https://github.com/uw-ssec/python-project-template/actions/workflows/ci.yml/badge.svg)](https://github.com/uw-ssec/python-project-template/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/uw-ssec/python-project-template/graph/badge.svg?token=13LYMLQBZL)](https://codecov.io/gh/uw-ssec/python-project-template)
+## Overview
 
-Python project repository template for developing python package. This template
-includes a basic structure for developing a python package, including a license,
-documentation, testing, and continuous integration. It is based on the
-[Scientific Python Library Development Guide and Cookiecutter](https://github.com/scientific-python/cookie).
+ProSpecPy is a fully modular Python package developed to process FTIR spectroscopy data from Bruker instruments. Created in collaboration between SSEC and Dr. Elizabeth Phillips of The Grantham Institute at Imperial College London (formerly Vincent Research Group at Oxford University), this tool streamlines data analysis workflows and significantly reduces sample processing time.
 
-This repository contains a template for developing a python project. To start,
-click on the green
-[Use this template](https://github.com/uw-ssec/python-project-template/generate)
-in the top right. This will allow you to create a new project using this base
-template.
+The package is designed to be user-friendly and flexible, allowing researchers to customize their data analysis workflows according to their specific needs. ProSpecPy is built on the principles of modularity, interactivity, and automation, making it a powerful tool for FTIR data processing.
 
-## What's included
+ProSpecPy is designed to be used in conjunction with Jupyter Notebooks, providing an interactive environment for data analysis. The package also supports batch processing, allowing users to apply common operations across multiple samples efficiently.
 
-This template contains the following:
+## Software Solution
 
-1. Python package setup files for building python package to a distribution. See
-   [PyPA packaging user guide](https://packaging.python.org/en/latest/) for more
-   info.
-2. Basic license file (currently BSD 3-Clause License, but can be modified to
-   specific project). See [choose a license](https://choosealicense.com/) for
-   more licenses.
-3. Starter [Jupyter Book](https://jupyterbook.org) based documentation
-   structure.
-4. Single test example to demonstrate the use of
-   [pytest](https://docs.pytest.org/en/7.2.x/).
-5. [GitHub workflow](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions)
-   config to run tests.
-6. [Pre-commit](https://pre-commit.com/) config to enable code style checks
-   before committing.
-7. [Read The Docs](https://readthedocs.org/) config to enable free hosting of
-   documentation.
-8. Code coverage analysis with
-   [`coverage.py`](https://coverage.readthedocs.io/en/7.2.3/) via
-   [`pytest-cov`](https://pytest-cov.readthedocs.io/en/latest/).
+ProSpecPy provides a comprehensive solution for FTIR data processing, addressing the limitations of existing software tools. It is designed to be user-friendly and flexible, allowing researchers to customize their data analysis workflows according to their specific needs.
+The package is built on the following key elements:
 
-## Open source licensing
+- A modular Python package for efficient FTIR data processing
+- Jupyter Notebook integration for interactive data analysis
+- Automated batch processing for common operations across samples
+- User-customizable preferences for individual sample processing
+- GitHub Codespaces integration for streamlined development
 
-Statement from Schmidt Sciences:
+## Installation and Usage
 
-_Schmidt Sciences expects that any code from projects funded by Schmidt Sciences
-be released as open source under an
-[OSI](https://opensource.org/licenses)-approved permissive license (such as
-[Apache v2.0](https://choosealicense.com/licenses/apache-2.0/) or
-[MIT](https://choosealicense.com/licenses/mit/)). We recommend that projects
-avoid using GPL due to known complexities associated with it. We encourage
-projects to publish data used for peer-reviewed scientific articles along with
-the code used to produce the results. Additionally, we recommend avoiding any
-license modifications for simplicity, and alignment with standard practices._
+[Documentation coming soon]
+
+## Contributing
+
+[Contribution guidelines coming soon]
+
+## License
+
+This project is licensed under the BSD 3-Clause License - see the LICENSE file for details.
