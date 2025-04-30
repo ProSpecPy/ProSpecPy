@@ -4,6 +4,5 @@
 format: jb-book
 root: intro
 chapters:
-  - file: markdown
-  - file: notebooks
+  - file: workflow_demo
   - file: markdown-notebooks

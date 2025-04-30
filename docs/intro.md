@@ -1,9 +1,12 @@
-# Welcome to the SSEC Project Documentation
+# Welcome to the ProSpecPy Documentation
 
-This is a small sample documentation from Jupyter Book to show how book content
-is structured. It shows off a few of the major file types, as well as some
-sample content. It does not go in-depth into any particular topic - check out
-[the Jupyter Book documentation](https://jupyterbook.org) for more information.
+## Overview
+
+ProSpecPy is a fully modular Python package developed to process FTIR spectroscopy data from Bruker instruments. Created in collaboration between SSEC and Dr. Elizabeth Phillips of The Grantham Institute at Imperial College London (formerly Vincent Research Group at Oxford University), this tool streamlines data analysis workflows and significantly reduces sample processing time.
+
+The package is designed to be user-friendly and flexible, allowing researchers to customize their data analysis workflows according to their specific needs. ProSpecPy is built on the principles of modularity, interactivity, and automation, making it a powerful tool for FTIR data processing.
+
+ProSpecPy is designed to be used in conjunction with Jupyter Notebooks, providing an interactive environment for data analysis. The package also supports batch processing, allowing users to apply common operations across multiple samples efficiently.
 
 Check out the content pages bundled with this sample book to see more.
 

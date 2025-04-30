@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: SSEC Project Documentation
+title: ProSpecPy Documentation
 author: UW Scientific Software Engineering Center
 logo: logo.png
 
