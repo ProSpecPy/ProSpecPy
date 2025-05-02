@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "prospecpy"
 dynamic = ["version"]
-description = "Python project repository template for developing python package."
+description = "Python package for analyzing FTIR Spectroscopy Data from Bruker instruments."
 readme = "README.md"
 requires-python = ">=3.11"
 classifiers = [
