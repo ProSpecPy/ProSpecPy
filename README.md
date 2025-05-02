@@ -6,19 +6,31 @@
 [![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
-
 ## Overview
 
-ProSpecPy is a fully modular Python package developed to process FTIR spectroscopy data from Bruker instruments. Created in collaboration between SSEC and Dr. Elizabeth Phillips of The Grantham Institute at Imperial College London (formerly Vincent Research Group at Oxford University), this tool streamlines data analysis workflows and significantly reduces sample processing time.
+ProSpecPy is a fully modular Python package developed to process FTIR
+spectroscopy data from Bruker instruments. Created in collaboration between SSEC
+and Dr. Elizabeth Phillips of The Grantham Institute at Imperial College London
+(formerly Vincent Research Group at Oxford University), this tool streamlines
+data analysis workflows and significantly reduces sample processing time.
 
-The package is designed to be user-friendly and flexible, allowing researchers to customize their data analysis workflows according to their specific needs. ProSpecPy is built on the principles of modularity, interactivity, and automation, making it a powerful tool for FTIR data processing.
+The package is designed to be user-friendly and flexible, allowing researchers
+to customize their data analysis workflows according to their specific needs.
+ProSpecPy is built on the principles of modularity, interactivity, and
+automation, making it a powerful tool for FTIR data processing.
 
-ProSpecPy is designed to be used in conjunction with Jupyter Notebooks, providing an interactive environment for data analysis. The package also supports batch processing, allowing users to apply common operations across multiple samples efficiently.
+ProSpecPy is designed to be used in conjunction with Jupyter Notebooks,
+providing an interactive environment for data analysis. The package also
+supports batch processing, allowing users to apply common operations across
+multiple samples efficiently.
 
 ## Software Solution
 
-ProSpecPy provides a comprehensive solution for FTIR data processing, addressing the limitations of existing software tools. It is designed to be user-friendly and flexible, allowing researchers to customize their data analysis workflows according to their specific needs.
-The package is built on the following key elements:
+ProSpecPy provides a comprehensive solution for FTIR data processing, addressing
+the limitations of existing software tools. It is designed to be user-friendly
+and flexible, allowing researchers to customize their data analysis workflows
+according to their specific needs. The package is built on the following key
+elements:
 
 - A modular Python package for efficient FTIR data processing
 - Jupyter Notebook integration for interactive data analysis
@@ -28,7 +40,9 @@ The package is built on the following key elements:
 
 ## Installation and Usage
 
-For the easiest way to get started with ProSpecPy, we recommend using GitHub Codespaces. This allows you to run the package in a cloud-based environment without needing to install anything locally.
+For the easiest way to get started with ProSpecPy, we recommend using GitHub
+Codespaces. This allows you to run the package in a cloud-based environment
+without needing to install anything locally.
 
 Click the button below 👇
 
@@ -40,4 +54,5 @@ Click the button below 👇
 
 ## License
 
-This project is licensed under the BSD 3-Clause License - see the [LICENSE](./LICENSE) file for details.
+This project is licensed under the BSD 3-Clause License - see the
+[LICENSE](./LICENSE) file for details.
