@@ -138,5 +138,9 @@ version.py
 .pixi
 *.egg-info
 
+# Local Files for Analysis
+data/
+
+
 # MacOS
 .DS_Store
