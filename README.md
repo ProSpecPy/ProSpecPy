@@ -52,7 +52,8 @@ After the codespace is loaded up, begin by creating two folders within the main 
 
 ## Contributing
 
-ProSpecPy is currently under development after an initial release. If you are interested in contributing, please check out our open (issues)[https://github.com/ProSpecPy/ProSpecPy/issues] and fork the repository to begin making changes within our object-oriented architecture.
+ProSpecPy is currently under development after an initial release. If you are interested in contributing, please check out our open 
+(issues)[https://github.com/ProSpecPy/ProSpecPy/issues] and fork the repository to begin making changes within our object-oriented architecture.
 
 ## License
 
