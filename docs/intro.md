@@ -18,7 +18,7 @@ providing an interactive environment for data analysis. The package also
 supports batch processing, allowing users to apply common operations across
 multiple samples efficiently.
 
-Check out the content pages bundled with this sample book to see more.
+Check out the workflow_demo.ipynb notebook and our README to get started.
 
 ```{tableofcontents}
 

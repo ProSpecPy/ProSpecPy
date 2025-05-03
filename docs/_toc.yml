@@ -5,4 +5,3 @@ format: jb-book
 root: intro
 chapters:
   - file: workflow_demo
-  - file: markdown-notebooks
